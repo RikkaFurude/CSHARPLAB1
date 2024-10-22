@@ -1,0 +1,446 @@
+using System;   
+
+
+namespace ConsoleApp4
+{
+
+    class Program
+    {
+
+
+        public double fraction(double x)
+        {
+            double s = Math.Floor(x);
+            return (x - s);
+        }
+        public int charToNum(char x)
+        {
+            string q = Convert.ToString(x);
+            int s = int.Parse(q);
+            return s;
+        }
+        public bool is2Digits(int x)
+        {
+            bool q= false;
+            if (x > 9 && x < 100) q = true;
+            return q;
+        }
+        public bool isInRange(int a, int b, int num)
+        {
+            bool q1 = (a > num && num > b);
+            bool q2 = (a < num && num < b);
+            return (q1 || q2);
+        }
+        public bool isEqual(int a, int b, int c)
+        {
+            bool q1 = (a == b);
+            bool q2 = (b == c);
+            return (q1&&q2);
+        }
+        public int abs(int x)
+        {
+            if (x > 0) return x;
+            else return (x * -1);
+        }
+        public bool is35(int x)
+        {
+            if ((x % 3 == 0) ^ (x % 5 == 0)) return true;
+            else return false;
+        }
+        public int max3(int x, int y, int z)
+        {
+            if (x > y)
+                if (x > z) return x;
+                else return z;
+            else if (y > z) return y;
+            else return z;
+        }
+        public int sum2(int x, int y)
+        {
+            int sum = x + y;
+            if (sum > 9 && sum < 20) sum = 20;
+            return sum;
+        }
+        public String day(int x)
+        {
+            string den;
+            switch (x)
+            {
+                case (1):
+                    den = "Понедельник";
+                    break;
+                case (2):
+                    den = "Вторник";
+                    break;
+                case (3):
+                    den = "Среда";
+                    break;
+                case (4):
+                    den = "Четверг";
+                    break;
+                case (5):
+                    den = "Пятница";
+                    break;
+                case (6):
+                    den = "Суббота";
+                    break;
+                case (7):
+                    den = "Воскресенье";
+                    break;
+                default:
+                    den = "Это не день недели";
+                    break;
+            }
+            return den;
+        }
+        public String listNums(int x)
+        {
+            string s = "";
+            for (int i = 0; i<=x; i++)
+            {
+                s += (i + " ");
+            }
+            return s;
+        }
+        public String chet(int x)
+        {
+            string s = "";
+            for (int i = 0; i < x; i=i+2)
+            {
+                s += (i + " ");
+            }
+            return s;
+        }
+        public int numLen(long x)
+        {
+            int count = 0;
+            while (x > 0)
+            {
+                count++;
+                x = x / 10;
+            }
+            return count;
+        }
+        public void square(int x)
+        {
+            Console.WriteLine();
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < x; j++)
+                {
+                    Console.Write('*');
+                }
+                Console.WriteLine();
+            }
+        }
+        public void rightTriangle(int x)
+        {
+            Console.WriteLine();
+            for (int i=0; i<x;  i++)
+            {
+                for (int j = 0; j <x; j++)
+                {
+                    if (i+j+1>=x) Console.Write('*');
+                    else Console.Write(' ');
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public int findFirst(int[] arr, int x)
+        {
+            int l = -1;
+            for(int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == x)
+                {
+                    l = i;
+                    break;
+                }               
+            }
+            return l+1;
+        }
+        public int maxAbs(int[] arr)
+        {
+            int max = 0;
+            int find = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int temp = Math.Abs(arr[i]);
+                if (temp > max)
+                {
+
+                    max = temp;
+                    find = i;
+                }
+            }
+            return arr[find];
+        }
+        public int[] addMass(int[] arr, int[] ins, int pos)
+        {
+            int len1 = arr.Length;
+            int len2 = ins.Length;
+            int c1=0,c2=0;
+            int gr1 = pos-1, gr2 = pos + len2 - 2;
+            int[] a = new int[len1+len2];
+            for(int i = 0; i < len1+len2 ; i++)
+            {
+                if (i >= gr1 && i <= gr2)
+                {
+                    a[i] = ins[c1];
+                    c1++;
+                }
+                else
+                {
+                    a[i]=arr[c2];
+                    c2++;
+                }
+            }
+            return a;
+        }
+
+        public int[] reverseBack(int[] arr)
+        {
+            int a = arr.Length;
+            int[] array=new int[a];
+            for(int i = 0; i < a; i++)
+            {
+                array[i] = arr[a - i - 1];
+            }
+            return array;
+        }
+        public int[] findAll(int[] arr, int x)
+        {
+            int a = arr.Length;
+            int[] array = new int[a];
+            int j = 0;
+            for (int i = 0; i < a; i++)
+            {
+                if (arr[i] == x)
+                {
+                    array[j] = i+1;
+                    j++;
+                }
+            }
+            Array.Resize(ref array, j);
+            return array;
+
+        }
+        public static void Main()
+        {
+            Console.Write("Введите номер задания :");
+            int a,b;
+            var prog = new Program();
+            a =Convert.ToInt32(Console.ReadLine());
+            switch (a)
+            {
+                case (1):
+                    Console.Write("Введите номер задачи :");
+                    b = Convert.ToInt32(Console.ReadLine());
+                    switch (b)
+                    {
+                        case (1):
+                            Console.Write("Введите число :");
+                            double x=Convert.ToDouble(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.fraction(x));
+                            break;
+                        case (2):
+                            Console.Write("Введите символ :");
+                            char s = Convert.ToChar(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.charToNum(s));
+                            break;
+                        case (3):
+                            Console.Write("Введите число :");
+                            int g = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.is2Digits(g));
+                            break;
+                        case (4):
+                            Console.Write("Введите a :");
+                            int a4 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите b :");
+                            int b4 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите num :");
+                            int num = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.isInRange(a4,b4,num));
+                            break;
+                        case (5):
+                            Console.Write("Введите a :");
+                            int a5 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите b :");
+                            int b5 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите c :");
+                            int c5 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.isEqual(a5, b5, c5));
+                            break;
+                    }
+                    break;
+                case (2):
+                    Console.Write("Введите номер задачи :");
+                    b = Convert.ToInt32(Console.ReadLine());
+                    switch (b)
+                    {
+                        case (1):
+                            Console.Write("Введите число :");
+                            int x1 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.abs(x1));
+                            break;
+                        case (2):
+                            Console.Write("Введите число :");
+                            int x2 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.is35(x2));
+                            break;
+                        case (3):
+                            Console.Write("Введите a :");
+                            int a3 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите b :");
+                            int b3 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите num :");
+                            int c3 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.max3(a3, b3, c3));
+                            break;
+                        case (4):
+                            Console.Write("Введите a :");
+                            int a4 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите b :");
+                            int b4 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.sum2(a4, b4));
+                            break;
+                        case (5):
+                            Console.Write("Введите число :");
+                            int x5 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.day(x5));
+                            break;
+                    }
+                    break;
+                case (3):
+                    Console.Write("Введите номер задачи :");
+                    b = Convert.ToInt32(Console.ReadLine());
+                    switch (b)
+                    {
+                        case (1):
+                            Console.Write("Введите x :");
+                            int x1 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.listNums(x1));
+                            break;
+                        case (2):
+                            Console.Write("Введите x :");
+                            int x2 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.chet(x2));
+                            break;
+                        case (3):
+                            Console.Write("Введите x :");
+                            int x3 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.numLen(x3));
+                            break;
+                        case (4):
+                            Console.Write("Введите x :");
+                            int x4 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            prog.square(x4);
+                            break;
+                        case (5):
+                            Console.Write("Введите x :");
+                            int x5 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            prog.rightTriangle(x5);
+                            break;
+                    }
+
+                    break;
+                case (4):
+                    Console.Write("Введите номер задачи :");
+                    b = Convert.ToInt32(Console.ReadLine());
+                    switch (b)
+                    {
+                        case (1):
+                            Console.Write("Введите длинну массива :");
+                            int n1 = Convert.ToInt32(Console.ReadLine());
+                            int[] a1 = new int[n1];
+                            Console.Write("Введите 'элементы массива массива :");
+                            for(int i=0;i<n1;i++)
+                                a1[i]= Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите число :");
+                            int f1 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.findFirst(a1,f1));
+                            break;
+                        case (2):
+                            Console.Write("Введите длинну массива :");
+                            int n2 = Convert.ToInt32(Console.ReadLine());
+                            int[] a2 = new int[n2];
+                            Console.Write("Введите 'элементы массива массива :");
+                            for (int i = 0; i < n2; i++)
+                                a2[i] = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            Console.WriteLine(prog.maxAbs(a2));
+                            break;
+                        case (3):
+                            Console.Write("Введите длинну 1 массива: ");
+                            int n3_1= Convert.ToInt32(Console.ReadLine());
+                            int[] a3 = new int[n3_1];
+                            Console.Write("Введите 'элементы массива массива :");
+                            for (int i = 0; i < n3_1; i++)
+                                a3[i] = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите длинну 2 массива: ");
+                            int n3_2 = Convert.ToInt32(Console.ReadLine());
+                            int[] b3 = new int[n3_2];
+                            Console.Write("Введите 'элементы массива массива :");
+                            for (int i = 0; i < n3_2; i++)
+                                b3[i] = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите Pos:");
+                            int pos= Convert.ToInt32(Console.ReadLine());
+                            int[] c3 = new int[n3_1 + n3_2];
+                            c3 = prog.addMass(a3, b3, pos);
+                            Console.Write("результат :");
+                            for (int i = 0; i < c3.Length; i++)
+                                Console.Write(c3[i] + " ");
+                            break;
+                        case (4):
+                            Console.Write("Введите длинну массива :");
+                            int n4 = Convert.ToInt32(Console.ReadLine());
+                            int[] a4 = new int[n4];
+                            Console.Write("Введите 'элементы массива массива :");
+                            for (int i = 0; i < n4; i++)
+                                a4[i] = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            int[] b4 = new int[n4];
+                            b4 = prog.reverseBack(a4);
+                            for (int i = 0; i < n4; i++)
+                                Console.Write(b4[i] + " ");
+                            break;
+                        case (5):
+                            Console.Write("Введите длинну массива :");
+                            int n5 = Convert.ToInt32(Console.ReadLine());
+                            int[] a5 = new int[n5];
+                            Console.Write("Введите 'элементы массива массива :");
+                            for (int i = 0; i < n5; i++)
+                                a5[i] = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("Введите число :");
+                            int f5 = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("результат :");
+                            int[] b5 = new int[n5];
+                            b5 = prog.findAll(a5,f5);
+                            for (int i = 0; i < b5.Length; i++)
+                                Console.Write(b5[i] + " ");
+                            break;
+                    }
+                    break;
+            }
+        }
+    }
+
+}
+
