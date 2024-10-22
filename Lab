@@ -21,8 +21,7 @@ namespace ConsoleApp4
         }
         public bool is2Digits(int x)
         {
-            bool q= false;
-            if (x > 9 && x < 100) q = true;
+            bool q= (x > 9 && x < 100);
             return q;
         }
         public bool isInRange(int a, int b, int num)
@@ -105,7 +104,7 @@ namespace ConsoleApp4
         public String chet(int x)
         {
             string s = "";
-            for (int i = 0; i < x; i=i+2)
+            for (int i = 0; i <= x; i=i+2)
             {
                 s += (i + " ");
             }
@@ -158,10 +157,11 @@ namespace ConsoleApp4
                     break;
                 }               
             }
+            if (l == -1) l--;
             return l+1;
         }
         public int maxAbs(int[] arr)
-        {
+        {   
             int max = 0;
             int find = 0;
             for (int i = 0; i < arr.Length; i++)
@@ -301,7 +301,7 @@ namespace ConsoleApp4
                             int a3 = Convert.ToInt32(Console.ReadLine());
                             Console.Write("Введите b :");
                             int b3 = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("Введите num :");
+                            Console.Write("Введите c :");
                             int c3 = Convert.ToInt32(Console.ReadLine());
                             Console.Write("результат :");
                             Console.WriteLine(prog.max3(a3, b3, c3));
@@ -370,11 +370,13 @@ namespace ConsoleApp4
                             int n1 = Convert.ToInt32(Console.ReadLine());
                             int[] a1 = new int[n1];
                             Console.Write("Введите 'элементы массива массива :");
-                            for(int i=0;i<n1;i++)
+                            Console.WriteLine();
+                            for (int i=0;i<n1;i++)
                                 a1[i]= Convert.ToInt32(Console.ReadLine());
                             Console.Write("Введите число :");
                             int f1 = Convert.ToInt32(Console.ReadLine());
                             Console.Write("результат :");
+
                             Console.WriteLine(prog.findFirst(a1,f1));
                             break;
                         case (2):
@@ -382,6 +384,7 @@ namespace ConsoleApp4
                             int n2 = Convert.ToInt32(Console.ReadLine());
                             int[] a2 = new int[n2];
                             Console.Write("Введите 'элементы массива массива :");
+                            Console.WriteLine();
                             for (int i = 0; i < n2; i++)
                                 a2[i] = Convert.ToInt32(Console.ReadLine());
                             Console.Write("результат :");
@@ -392,12 +395,14 @@ namespace ConsoleApp4
                             int n3_1= Convert.ToInt32(Console.ReadLine());
                             int[] a3 = new int[n3_1];
                             Console.Write("Введите 'элементы массива массива :");
+                            Console.WriteLine();
                             for (int i = 0; i < n3_1; i++)
                                 a3[i] = Convert.ToInt32(Console.ReadLine());
                             Console.Write("Введите длинну 2 массива: ");
                             int n3_2 = Convert.ToInt32(Console.ReadLine());
                             int[] b3 = new int[n3_2];
                             Console.Write("Введите 'элементы массива массива :");
+                            Console.WriteLine();
                             for (int i = 0; i < n3_2; i++)
                                 b3[i] = Convert.ToInt32(Console.ReadLine());
                             Console.Write("Введите Pos:");
@@ -413,6 +418,7 @@ namespace ConsoleApp4
                             int n4 = Convert.ToInt32(Console.ReadLine());
                             int[] a4 = new int[n4];
                             Console.Write("Введите 'элементы массива массива :");
+                            Console.WriteLine();
                             for (int i = 0; i < n4; i++)
                                 a4[i] = Convert.ToInt32(Console.ReadLine());
                             Console.Write("результат :");
@@ -426,6 +432,7 @@ namespace ConsoleApp4
                             int n5 = Convert.ToInt32(Console.ReadLine());
                             int[] a5 = new int[n5];
                             Console.Write("Введите 'элементы массива массива :");
+                            Console.WriteLine();
                             for (int i = 0; i < n5; i++)
                                 a5[i] = Convert.ToInt32(Console.ReadLine());
                             Console.Write("Введите число :");
@@ -441,6 +448,10 @@ namespace ConsoleApp4
             }
         }
     }
+
+}
+
+
 
 }
 
